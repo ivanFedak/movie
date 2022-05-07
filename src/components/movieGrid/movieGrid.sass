@@ -1,0 +1,25 @@
+@use '../../sass/' as *
+
+.movie-grid
+    margin-bottom: 40px
+    &__container
+    &__content
+        display: grid
+        gap: 20px
+        grid-template-columns: repeat(auto-fill, minmax(200px,1fr))
+        margin-bottom: 50px
+        @media (max-width: $md2 + px) //Less 992
+           grid-template-columns: repeat(auto-fill, minmax(150px,1fr))
+        @media (max-width: $md4 + px)//Less 479
+           grid-template-columns: repeat(auto-fill, minmax(140px,1fr))
+    &__form
+        @include flex(unset,flex-start)
+        gap: 15px
+        margin-bottom: 20px
+        @media (max-width: $md4 + px)//Less 479
+           .input
+               flex: 1 1 auto
+        @media (max-width: 370px)//Less 370
+           flex-direction: column
+    &__loadmore
+        @include flex(center,center)

@@ -1,0 +1,53 @@
+$icomoon-font-family: "icons" !default;
+$icomoon-font-path: "../assets/fonts" !default;
+
+$_icon-tv: "\e900";
+$_icon-film: "\e901";
+$_icon-home: "\e903";
+$_icon-star: "\e902";
+
+
+@font-face {
+  font-family: '#{$icomoon-font-family}';
+  src: url('#{$icomoon-font-path}/#{$icomoon-font-family}.woff?951rbi') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="_icon-"], [class*=" _icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: '#{$icomoon-font-family}';
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+._icon-tv {
+  &:before {
+    content: $_icon-tv; 
+  }
+}
+._icon-film {
+  &:before {
+    content: $_icon-film; 
+  }
+}
+._icon-home {
+  &:before {
+    content: $_icon-home; 
+  }
+}
+._icon-star {
+  &:before {
+    content: $_icon-star; 
+  }
+}
+

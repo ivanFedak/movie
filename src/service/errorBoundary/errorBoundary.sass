@@ -1,0 +1,12 @@
+@use '../../sass/' as *
+
+.error-boundary
+    &__container
+        @include flex(flex-start,center)
+        flex-direction: column
+    &__img
+        width: 350px
+        height: 200px
+    &__title
+        color: $red-color
+        @include adaptiv-value('font-size', 22, 15, 1)

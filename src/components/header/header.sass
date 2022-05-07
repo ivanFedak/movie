@@ -1,0 +1,82 @@
+@use '../../sass/' as *
+
+.header
+    position: fixed
+    top: 0
+    left: 0
+    z-index: 10000
+    width: 100%
+    height: $header-height
+    transition: height 0.3s ease,background-color .3s ease
+    @media (max-width: $md3 + px) //Less 768
+       height: 70px
+    &.shrink
+        height: $header-shrink-height
+        background-color: $body-bg
+        @media (max-width: $md3 + px) //Less 768
+           height: 50px
+    &__container
+        @include flex(center,space-between)
+        flex-wrap: wrap
+        height: 100%
+        padding: 0 30px !important
+        @media (max-width: 600px)
+           justify-content: center
+    &__logo
+        padding-left: 10px
+    &__nav
+        @include flex(center,center)
+        flex-wrap: wrap
+        & > * ~ *
+            margin-left: 30px
+        li
+            position: relative
+            padding: 5px 0
+            @include adaptiv-value('font-size', 26, 22, 1)
+            font-weight: 700
+            cursor: pointer
+            @media (max-width: $md3 + px) //Less 768
+                @include adaptiv-value('font-size', 25, 15, 1)
+            &::after
+                content: ''
+                position: absolute
+                bottom: 0
+                left: 50%
+                transform: translateX(-50%)
+                width: 0
+                transition: width 0.3s ease
+                height: 2px
+                background-color: $red-color
+            &.active::after,
+            &:hover::after
+                width: 100%
+        @media (max-width: 600px)
+            position: fixed
+            bottom: 0
+            left: 0
+            z-index: 999
+            @include flex(center,space-between)
+            width: 100%
+            height: 45px
+            padding: 0 20px
+            background-color: $body-bg
+            box-shadow: $box-shadow
+            & > * ~ *
+                margin-left: 0
+.logo
+    @include flex(center,unset)
+    @include adaptiv-value('font-size', 44, 33, 1)
+    font-weight: 600
+    @media (max-width: $md3 + px) //Less 768
+       @include adaptiv-value('font-size', 26, 22, 1)
+    img
+        margin-right: 10px
+        width: 50px
+        @media (max-width: $md3 + px) //Less 768
+            margin-right: 0
+            @include adaptiv-value('width', 40, 30, 1)
+    a
+        transition: color 0.3s ease 0s
+        @media (any-hover: hover)
+            &:hover
+                color: $red-color

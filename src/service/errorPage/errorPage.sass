@@ -1,0 +1,42 @@
+@use '../../sass/' as *
+
+.issue
+    position: relative
+    z-index: 1
+    background-size: cover
+    background-position: center
+    background-repeat: no-repeat
+    @media (min-width: $md3 + px)//More 768
+        padding: 60% 0 0
+    @media (max-width: $md3 + px) //Less 768
+       padding-top: 20%
+    &__container
+        @media (max-width: $md3 + px) //Less 768
+            @include flex(center,center)
+            flex-direction: column-reverse
+    img
+        width: 45%
+        @media (min-width: $md3 + px)//More 768
+            position: absolute
+            top: 2px
+        @media (max-width: $md3 + px) //Less 768
+            margin-top: 20px
+            margin-bottom: -20%
+    &__content
+        text-align: center
+        @media (min-width: $md3 + px)//More 768      
+            position: absolute
+            top: 50%
+            transform: translateY(-50%)
+            right: 20px
+    &__title
+        @include adaptiv-value('font-size', 207, 44, 1)
+    &__text
+        font-weight: 600
+        @media (max-width: $md4 + px)//Less 479
+           font-weight: 500
+           font-size: 14px
+    .btn-outline
+        margin-top: 40px
+        @media (max-width: $md4 + px)//Less 479
+           margin-top: 20px

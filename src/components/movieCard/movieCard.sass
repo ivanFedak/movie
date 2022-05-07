@@ -1,0 +1,45 @@
+@use '../../sass/' as *
+
+.movie-card
+    position: relative
+    border-radius: 30px
+    .btn
+        position: absolute
+        z-index: 3
+        top: 50%
+        left: 50%
+        transform: translate(-50%,-50%) scale(0)
+        transition: all 0.3s ease
+    &__img
+        position: relative
+        padding-bottom: 155%
+        &::before
+            content: ''
+            position: absolute
+            top: 0
+            left: 0
+            bottom: 0
+            right: 0
+            z-index: 2
+            opacity: 0
+            background-color: $black
+            transition: opacity 0.3s ease
+            border-radius: $border-radius   
+        img
+            border-radius: 30px
+    &__info
+        margin-top: 10px
+        font-weight: 700
+        @include adaptiv-value('font-size', 19, 14, 1)
+        color: #f1f1f1
+        @media (max-width: $md4 + px)//Less 479
+           font-size: 13px
+    @media (any-hover: hover)
+        &:hover
+            .movie-card__img
+                &::before
+                    opacity: 0.8
+            .btn
+                transform: translate(-50%,-50%) scale(1)
+            .movie-card__info
+                color: $red-color

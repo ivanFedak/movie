@@ -1,0 +1,46 @@
+@use '../../sass/' as *
+
+.modal
+    position: fixed
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    z-index: 99999
+    overflow: auto
+    @include flex(center,center)
+    background-color: rgba($color: $black, $alpha: 0.4)
+
+    opacity: 0
+    visibility: hidden
+    &.active
+        opacity: 1
+        visibility: visible
+    &__content
+        position: relative
+        width: 50%
+        background-color: $body-bg
+        // padding: 30px
+        @include adaptiv-value('padding', 30, 15, 1)
+        @media (max-width: $md2 + px)//Less 992
+           width: 60%
+        @media (max-width: $md3 + px) //Less 768
+           width: 70%
+        @media (max-width: $md4 + px)//Less 479
+           width: 90%
+    &__close
+        position: absolute
+        right: 5px
+        top: 5px
+        font-size: 33px
+        @include adaptiv-value('font-size', 33, 22, 1)
+        cursor: pointer
+        transition: color 0.3s ease 0s
+        @media (any-hover: hover)
+            &:hover
+                color: $red-color
+        @media (max-width: $md3 + px) //Less 768
+           top: 2px
+           right: 2px
+    &__iframe
+        @include adaptiv-value('height', 500, 200, 1)

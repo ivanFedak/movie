@@ -1,0 +1,9 @@
+@use '../../sass/' as *
+
+.movie-list
+    .swiper-slide
+        width: 15%
+        @media (max-width: $md3 + px) //Less 768
+           width: 30%
+        @media (max-width: $md4 + px)//Less 479
+           width: 45%
