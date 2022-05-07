@@ -26,14 +26,14 @@ const Detail = () => {
 
     const getItem = () => {
         detail(category,id)
-            .then(res => setItem(res))
+            .then(setItem)
             .catch(e => console.log(`Error in fetch (Detail), error - ${e}`));
         window.scrollTo(0,0);
     }
 
     if(!item) return <LoadingPage/>
 
-    const {title,name,overview,genres,poster_path,backdrop_path} = item;
+    const {title,name,overview,genres,poster_path,backdrop_path,release_date,runtime} = item;
 
     const bg = configApi.originalImage(backdrop_path ? backdrop_path : poster_path);
     const poster = configApi.w780image(poster_path ? poster_path : backdrop_path);
@@ -53,6 +53,17 @@ const Detail = () => {
                         {genres.slice(0,3).map(item =><div key={item.id}>{item.name}</div>)}
                     </div>
                     <div className="detail__decr">{overview}</div>
+
+                    <div className="detail__cast info-detail cast-detail">
+                        <div className="info-detail__item">
+                            <h2 className="cast-detail__title">Released Data</h2>
+                            <div className="detail__decr">{release_date}</div>
+                        </div>
+                        <div className="info-detail__item">
+                            <h2 className="cast-detail__title">Runtime</h2>
+                            <div className="detail__decr">{runtime} min</div>
+                        </div>
+                    </div>
 
                     <div className="detail__cast cast-detail">
                         <h2 className="cast-detail__title">Casts</h2>

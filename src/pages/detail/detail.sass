@@ -40,7 +40,7 @@
         padding-left: 30px
         & > *
             &:not(:last-child)
-                margin-bottom: 25px
+                @include adaptiv-value('margin-bottom', 25, 15, 1)
         @media (max-width:  600px) //Less 600
             width: 100%
             padding-left: 0
@@ -48,8 +48,10 @@
                 &:not(:last-child)
                     margin-bottom: 20px
     &__name
-        @include adaptiv-value('font-size', 66, 36, 1)
+        @include adaptiv-value('font-size', 66, 16, 1)
         line-height: 1
+        @media (max-width: 600px)
+            font-size: 29px
     &__genres
         display: flex
         gap: 10px
@@ -58,22 +60,36 @@
             border: 2px solid $white
             border-radius: $border-radius
             font-weight: 500
-            @include adaptiv-value('font-size', 14, 11, 1)
+            @include adaptiv-value('font-size', 14, 9, 1)
+            @media (max-width: $md2 + px)//Less 992
+               padding: 6px 14px
             @media (max-width: $md4 + px)//Less 479
                padding: 5px 12px
     &__decr
         margin-top: 15px
-        @include adaptiv-value('font-size', 18, 15, 1)
+        @include adaptiv-value('font-size', 18, 12, 1)
         line-height: 1.5
+        @media (max-width: 600px)
+            font-size: 14px
 
+.info-detail
+    display: flex
+    align-items: flex-start
+    gap: 50px
+    .detail__decr
+        @include adaptiv-value('margin-top', 10, 5, 1)
 
 .cast-detail
     &__title
         margin-bottom: 5px
+        @include adaptiv-value('font-size', 24, 16, 1)
     &__container
         display: grid
         grid-template-columns: repeat(auto-fill, minmax(90px,1fr))
         @include adaptiv-value('gap', 15, 10, 1)
+        @media (max-width: $md2 + px)//Less 992
+            grid-template-columns: repeat(auto-fill, minmax(70px,1fr))
+           
     &__item
         display: flex
         flex-direction: column
