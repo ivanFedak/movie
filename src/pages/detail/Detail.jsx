@@ -33,10 +33,13 @@ const Detail = () => {
 
     if(!item) return <LoadingPage/>
 
-    const {title,name,overview,genres,poster_path,backdrop_path,release_date,runtime} = item;
+    const {title,name,overview,genres,poster_path,backdrop_path,release_date,first_air_date,runtime,episode_run_time} = item;
 
     const bg = configApi.originalImage(backdrop_path ? backdrop_path : poster_path);
     const poster = configApi.w780image(poster_path ? poster_path : backdrop_path);
+
+    const released = release_date ||  first_air_date;
+    const time = runtime ||  episode_run_time;
 
     return (
         <div className="detail">
@@ -57,11 +60,11 @@ const Detail = () => {
                     <div className="detail__cast info-detail cast-detail">
                         <div className="info-detail__item">
                             <h2 className="cast-detail__title">Released Data</h2>
-                            <div className="detail__decr">{release_date}</div>
+                            <div className="detail__decr">{released}</div>
                         </div>
                         <div className="info-detail__item">
                             <h2 className="cast-detail__title">Runtime</h2>
-                            <div className="detail__decr">{runtime} min</div>
+                            <div className="detail__decr">{time} min</div>
                         </div>
                     </div>
 
